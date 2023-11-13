@@ -65,6 +65,15 @@
             return $this->cidade = $cidade;
         }
 
+        public function excluuir(){
+            $this->setCPF(0);
+            $this->setNome("");
+            $this->setTelefone("");
+            $this->setEndereco("");
+            $this->setCidade("");
+            return "Dados Excluidos!";
+        }//fim do metodo
+
         public function imprimir(){
             $msg = "\n\nCPF:".$this->getCPF().
                     "\nNome: ".$this->getNome().
@@ -74,48 +83,17 @@
             return $msg;
         }//fim do metodo
 
-        public function excluir(){
-            $this->setCPF(0);
-            $this->setNome("");
-            $this->setTelefone("");
-            $this->setEndereco("");
-            $this->setCidade("");
-            return "Dados Excluidos!";
-        }//fim do metodo
+        session_start();
+        $cpf = $_SESSION['cpf'];
+        $nome = $_SESSION['nome'];
+        $tele = $_SESSION['telefone'];
+        $end = $_SESSION['endereco'];
+        $cid = $_SESSION['cidade'];
 
 
-        public function menu(){
-            $men = "\n Escolha o que deseja atuaizar: ".
-                    "\n. Nome".
-                    "\n. Telefone".
-                    "\n. Endereco".
-                    "\n. Cidade";
-            return $men;
-        }//fim do metodo
+        
 
-        public function atualizar($opcao, $dado){
-
-            switch($opcao){
-                
-                    case 1: 
-                        $this->setNome($dado);
-                        break;
-
-                    case 2:
-                        $this->setTelefone($dado);
-                        break;
-                    case 3:
-                        $this->setEndereco($dado);
-                        break;
-                    case 4:
-                        $this->setCidade($dado);
-                        break;
-
-                    default:
-                    return "Opção escolhida não é valida";
-                 
-            }//fim do escola 
-        }//fim do metodo
+       
 
     }//fim da classe
 ?>

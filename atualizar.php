@@ -8,9 +8,38 @@
 </head>
 <body>
     <?php
-        include 'cadastro.php' ?>
-    <form method="POST";>
+     function atualizar($opcao, $dado){
 
+        switch($opcao){
+            
+                case 1: 
+                    $_SESSION['nome'] = $dado;
+                    return "Atualizado nome";
+                    break;
+
+                case 2:
+                    $_SESSION['telefone'] = $dado;
+                    return "Atualizado telefone";
+                    break;
+                case 3:
+                    $_SESSION['endereco'] = $dado;
+                    return "Atualizado endereco";
+                    break;
+                case 4:
+                    $_SESSION['cidade'] = $dado;
+                    return "Atualizado cidade";
+                    break;
+
+                default:
+                return "Faça uma escolha";
+             
+        }//fim do escola 
+    }//fim do metodo
+
+        include 'cadastro.php' ?>
+        <form method="POST">
+
+        <label>Escolha o campo que deseja atualizar: </label>
         <select name="opcao">
             <option value="0"></option>
             <option value="1">Nome</option>
@@ -25,11 +54,17 @@
 
         <button> Atualizar
             <?php
-                
+                session_start();
+                $opcao = $_POST['opcao'];
+                $dado = $_POST['dado'];       
             ?>
 
         </button>
-    </form>
+        <?php
+            echo atualizar ($opcao, $dado)
+        ?>
+    
+        </form>
     
 </body>
 </html>

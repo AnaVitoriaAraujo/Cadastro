@@ -8,7 +8,7 @@
 </head>
 <body>
     <form method="POST">
-        <button><a href="cadastro.php">Cadastrar</a></button>
+        <button><a href="paginaCadastro.php">Cadastrar</a></button>
         <button><a href="consultar.php">Consultar</a></button> <br><br>
         <button><a href="atualizar.php">Atualizar</a></button>
         <button><a href="excluir.php">Excluir</a></button>

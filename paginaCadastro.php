@@ -36,23 +36,25 @@
          <?php            
             //Passe os dados para o construtor
             
-            function consultarObjeto(){
-                $cpf = $_POST['tCPF'];
-                $nome = $_POST['tNome'];
-                $telefone = $_POST['tTel'];
-                $endereco = $_POST['tEnd'];
-                $cidade = $_POST['tCid'];
-        
-                $cad = new Cadastro($cpf, $nome, $telefone, $endereco, $cidade);
-                return $cad;
-            }//fim do metodo
+            session_start();
+            
+                $_SESSION['cpf'] = $_POST['tCPF'];
+                $_SESSION ['nome'] = $_POST['tNome'];
+                $_SESSION['telefone'] = $_POST['tTel'];
+                $_SESSION['endereco'] = $_POST['tEnd'];
+                $_SESSION['cidade'] = $_POST['tCid'];  
          ?>
 
         </button>
+
+      
+        <form method="POST">
+        <button><a href="Index.php">Voltar para o Index</a></button> <br><br>
+
+        </form>
+
     </form>
 
-    <?php 
-        echo consultarObjeto()->imprimir();
-    ?>
+
 </body>
 </html>
